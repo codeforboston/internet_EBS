@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an Emergency Widget</title>
+    <link media="all" rel="stylesheet" href="css/chosen.css" type="text/css" />
+</head>
+<body>
+    <header>
+        <h1>Embed an emergency widget on your website</h1>
+    </header>
+    <section class="body">
+        <form action="" class="widget-generator"> 
+            <label for="iata_code">
+                City
+                <select id="iata_code" multiple>
+                </select>
+            </label>
+        </form>
+        <textarea name="" rows="5" class="code" cols="50" id="code">
+        </textarea>
+    </section>
+    <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="js/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="js/airport_codes.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        add_codes('#iata_code');
+
+        var get_script = function(codes) {
+            return '&lt;script type="text/javascript" src="url.tld/iebs/?' + codes + '"&gt;&lt;/script&gt;';
+        }
+        $("#iata_code").chosen().change(function(e) {
+           $('#code').html(get_script($(this).val().join('+')));
+        });
+    </script>
+</body>
+</html>
