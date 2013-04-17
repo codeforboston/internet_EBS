@@ -1,62 +1,48 @@
-internet_EBS
+Internet EBS
 ============
+#### An Emergency Broadcast System for the Internet
 
-An emergency broadcast system - FOR THE INTERNET
+----
 
-Internet_EBS   
+## IDEAS
 
-04/16/13
+- Witness Media App
+- Good Smaritan Stories
+- Need/Get/Offer Help
+- Resource Directory
+- Find your Missing Person
+- Fuzzy People Matching
+- Key News Feeds / Twitter
+- Widget
 
-IDEAS
+----
 
-Witness Photo/Video App
+## Widget 
 
-Good Smaritan Stories
-
-Need Help / Get Help / Offer Help
-
-Resource Directory – with Links
-
-Find your missing person
-
-Fuzzy People Matching
-
-& key news feeds / Twitter
+A small snippet of javascript for websites that will alert their users of emergencies in their area, giving them useful information at a time they need it most.
 
 
-Create a widget
-[_] BOS
-[_] CHI
-[_] NYC
 
-~~~~~~~ bos & ?
+#### JSON:
 
-Emilye
-<script sne ?   = script 33>
-<script 
-    cities = [“BOS”,ORD”]
-
-script.js
-
-??.com/internet_ebs/bos   .json
-                                /ord    .json
-
+````
 {
-message “ Sea monster...”,
-URL: “http://...”,
-status: “Emerg”, “warning”, “?
-date: “04/13/2013”  [and time?]
+	title: [string],
+	text: [string],
+	url: [url],
+	status: [alert, warning, ?],
+	time: [UTC]
 }
+````
 
-Disaster info widget
+##### eg.
 
----------------------------------
-| ____________________           |
-| SEATTLE: Sea Monster attack!!  |
-| ____________________           |
-|                                |
-|                                |
-|                                |
-|                                |
----------------------------------
-
+````
+{
+	title: "Sea Monster Attack",
+	text: “There is a sea monster currently...”,
+	URL: “http://...”,
+	status: “Emergency",
+	time: “2013-04-17 09:24:20 -0400”
+}
+````
