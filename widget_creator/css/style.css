@@ -1,0 +1,13 @@
+html {
+  font-weight: 22px;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 1rem 10rem;
+}
+h1, h2, h3, h4 {
+  font-family: 'Racing Sans One', sans-serif;
+  font-weight: normal;
+}
+
