@@ -10,5 +10,9 @@
   recovery_widget.innerHTML =
     '<div class="media_block"><img class="float_left" src="' + content.imgSrc + '"/><div class="content"><h5><small>Happening Now:</small></h5><h1>' + content.title + '</h1><p>' + content.text + '</p><p><a href="' + content.link + '">Read More &rarr;</a></p></div></div>';
 
+  var css = document.createElement('link');
+  css.href = './style.css';
+  css.rel = 'stylesheet';
+  document.head.appendChild(css);
   document.body.insertBefore(recovery_widget);
 })();
