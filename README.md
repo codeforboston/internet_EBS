@@ -12,3 +12,14 @@ The Internet Emergency Broadcast System project was generated at the Brigade Wee
 ###### Usage
 
 The IEBS is comprised of an embeddable Javascript widget that can be placed on any webpage. In normal usage, the widget is invisible and does not interfere with the operation of the host site. During emergencies, it can be turned on by an authorized user - most likely an emergency services director or police / fire chief at the City level - and will then display key information to the user, such as phone numbers, URLs, locations, and other critical information to keep citizens up to date as they navigate the emergency. The widget may use geolocation data from the browser to determine which city to reveal information about, or sites may select with cities they want to support.
+
+###### Node back-end
+
+First install node.js if you haven't (http://nodejs.org/). Then:
+```
+internet_EBS$ cd backend
+backend$ npm install
+backend$ node app.js
+```
+Next navigate to http://localhost:3000  
+Refresh a few times, and see the emergency banner appear and disappear!
