@@ -4,5 +4,7 @@ head
 body
   p This is the admin interface!
   .current-status
-    span The current status of Sim City is:
-    span.status= emergency ? 'EMERGENCY' : 'fine'
+    span The current status of
+    span.city= city
+    span= " is "
+    span.status= status ? 'EMERGENCY' : 'fine'
