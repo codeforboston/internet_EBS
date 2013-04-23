@@ -8,6 +8,7 @@ var config = {
 		LAX: "Los Angeles, CA",
 		DFW: "Dallas Fort Worth, TX",
 		JFK: "New York, NY",
+		OTHER: "Other City",
 		SIMCITY: "Sim City"
 	}
 };
