@@ -6,9 +6,14 @@
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
-var i = 0;
+var sim_emergency = false;
 exports.cities = function(request, response){
-	i++;
-  if (i% 2) response.sendfile('public/cities/city.js');
-  else response.send(200);
+  if (sim_emergency) response.sendfile('public/cities/city.js');
+  else response.jsonp(null);
 };
+exports.admin = function(request, response){
+	sim_emergency = !sim_emergency;
+	response.render('admin', {emergency: sim_emergency});
+}
+
+
