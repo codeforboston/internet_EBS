@@ -24,8 +24,13 @@ var iebs =  {
 	iebs.add_opts('#cities', config.cities);
         $('#cities').select2({
                 placeholder: config.placeholder,
-                closeOnSelect: false
+                closeOnSelect: false,
+                width: 'copy'
         }).change(function() {
                 iebs.update_script(this, '#code', config.url);
+        });
+        // Prevent user from entering text into textarea
+        $('#code').keydown(function(event) {
+                event.preventDefault();
         });
 })();
