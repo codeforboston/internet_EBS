@@ -11,3 +11,18 @@ h1, h2, h3, h4 {
   font-weight: normal;
 }
 
+,cities {
+  width: 50%;
+  min-width: 50%;
+}
+.select2-container-multi .select2-choices .select2-search-field input {
+  min-width: 15rem;
+}
+
+.code {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  font-size: 1rem;
+  margin: .6rem 0;
+}
