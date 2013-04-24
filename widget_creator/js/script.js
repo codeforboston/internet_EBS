@@ -22,7 +22,10 @@ var iebs =  {
 
 (function() {
 	iebs.add_opts('#cities', config.cities);
-	$("#cities").chosen().change(function() {
-		iebs.update_script(this, '#code', config.url);
-	});
+        $('#cities').select2({
+                placeholder: config.placeholder,
+                closeOnSelect: false
+        }).change(function() {
+                iebs.update_script(this, '#code', config.url);
+        });
 })();

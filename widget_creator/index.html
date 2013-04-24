@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Create an Emergency Widget</title>
-    <link media="all" rel="stylesheet" href="css/chosen.css" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Racing+Sans+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
+    <link media="all" rel="stylesheet" href="plugins/select2/select2.css" type="text/css" />
     <link media="all" rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body>
@@ -14,15 +15,15 @@
     <section class="body">
         <form action="" class="widget-generator"> 
             <label for="cities">
-                Get alerts for the following cities:
+                Get alerts for:
             </label>
-            <select id="cities" multiple></select>
+            <select id="cities" class="cities" multiple></select>
         </form>
-        <textarea name="" rows="5" class="code" cols="50" id="code">
+        <textarea name="" rows="2" class="code" cols="50" id="code">
         </textarea>
     </section>
     <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <script src="js/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="plugins/select2/select2.min.js" type="text/javascript"></script>
     <script src="config.js" type="text/javascript"></script>
     <script src="js/script.js" type="text/javascript"></script>
 </body>

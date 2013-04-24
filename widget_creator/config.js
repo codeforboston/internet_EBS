@@ -10,7 +10,9 @@ var config = {
 		JFK: "New York, NY",
 		OTHER: "Other City",
 		SIMCITY: "Sim City"
-	}
+	},
+        // Placeholder text for dropdown
+        placeholder: 'Select one or more cities'
 };
 
 
