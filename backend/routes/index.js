@@ -6,6 +6,16 @@ exports.index = function (req, res) {
 	res.render('index', { title: 'Express' });
 };
 
+exports.direct = function(request, response){
+	var content = {
+		title: "Title Of Disaster",
+		text: "This is some content next to an image. This is what you need to know. This is some other stuff you need to know.",
+		image: "http://placehold.it/93",
+		link: "#"
+	}
+	response.render('banner/page', {content: content});
+}
+
 var statuses = {
 	simcity: false,
 	othercity: false
