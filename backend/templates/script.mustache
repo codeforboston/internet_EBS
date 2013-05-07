@@ -1,0 +1,12 @@
+(function() {
+	var recovery_widget = document.createElement('div'), content = {};
+
+	recovery_widget.setAttribute('class', 'recovery_widget');
+	recovery_widget.innerHTML = '{{{html}}}'; //TODO this will break if there's a single quote in the html...
+
+	var css = document.createElement('link');
+	css.href = '/stylesheets/style.css';
+	css.rel = 'stylesheet';
+	document.head.appendChild(css);
+	document.body.insertBefore(recovery_widget);
+})();
