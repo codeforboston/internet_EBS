@@ -21,15 +21,15 @@ var content = {
 	link: "#"
 }
 
-var emergency = true;
+module.exports = function(emergency_state){
+	return function (request, response){
+	var emergency = emergency_state.get_state('simcity');
 
-module.exports = function(request, response){
-	emergency = !emergency;
 	if (! emergency) return response.send(204);
 
 	var html = jade_fn({content: content});
 	var snippet = mustache_fn({html: html});
 	response.send(snippet);
-};
+}};
 
 
