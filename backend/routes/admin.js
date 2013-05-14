@@ -1,10 +1,16 @@
 module.exports = function(emergency_state) {
 	return {
 		get: get,
-		post: post
+		post: post,
+		clear: clear
 	};
 
 
+	function clear(request,response){
+		var city = request.params.city;
+		emergency_state.set(city, false);
+		get(request, response);
+	}
 
 	function get(request, response) {
 		var city = request.params.city;
