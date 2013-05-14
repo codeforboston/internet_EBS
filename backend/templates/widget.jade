@@ -2,8 +2,8 @@
   img.float_left(src=content.image)
   .content
     h5
-      small Happening Now:
+      small= 'Emergency in ' + content.city + ':'
       h1= content.title
-      p= content.text
+      p= content.message
       p
         a(href=content.link) Read More &rarr;

@@ -4,7 +4,19 @@ head
 body
   p This is the admin interface!
   .current-status
-    span The current status of
+    span The current status of&nbsp
     span.city= city
     span= " is "
     span.status= status ? 'EMERGENCY' : 'fine'
+  form(method="post", action="/admin/"+city)
+    .title
+      label(for="title") Title:
+      input#title(type="text", name="title")
+    .message
+      label(for="message") Message:
+      textarea#message(name="message")
+    .link
+      label(for="link") Link:
+      input#link(type="text", name="link")
+    .submit
+      button(type="submit") Submit

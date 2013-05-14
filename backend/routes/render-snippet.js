@@ -14,22 +14,30 @@ var mustache_templ_path = path.join(__dirname, '..', 'templates','script.mustach
 var mustache_text = fs.readFileSync(mustache_templ_path, 'utf8');
 var mustache_fn = mustache.compile(mustache_text);
 
-var content = {
-	title: "Title Of Disaster",
-	text: "This is some content next to an image. This is what you need to know. This is some other stuff you need to know.",
-	image: "http://placehold.it/93",
-	link: "#"
-}
+
 
 module.exports = function(emergency_state){
+
+
 	return function (request, response){
-	var emergency = emergency_state.get_state('simcity');
+	var cities = request.query.cities;
+	if(!cities) return response.send(204);
 
-	if (! emergency) return response.send(204);
+	cities = cities.split(',');
+	var emergencity = get_first(cities, emergency_state.get_state.bind(emergency_state));
+	var status = emergency_state.get_state(emergencity);
 
-	var html = jade_fn({content: content});
+	if (! status) return response.send(204);
+
+	var html = jade_fn({content: status});
 	var snippet = mustache_fn({html: html});
 	response.send(snippet);
 }};
 
-
+function get_first(array, predicate){
+	var el, len = array.length;
+	for (var i = 0; i < len; i++){
+		el = array[i];
+		if (predicate(el)) return el;
+	}
+}
