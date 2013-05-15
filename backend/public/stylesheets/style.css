@@ -1,12 +1,22 @@
 .recovery_widget {
-  margin-bottom: 20px;
-  position: relative;
+  position: fixed;
+  width:25%;
+  min-width:250px;
+  top:25px;
+  right:25px;
   z-index: 99999;
   background: #f7f7f7;
   border-bottom: 1px solid #e6e6e6;
   padding: 1em;
+  border-radius:3px;
   font: normal 15px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+  animation: flasher .5s ease-in-out .1s infinite alternate;
+  -webkit-animation: flasher .5s ease-in-out .1s infinite alternate;
+}
+@-webkit-keyframes flasher{
+  from {box-shadow: -1px 1px 8px 3px rgba(255,35,0, .1); background: #f7f7f7;}
+  to{box-shadow: -1px 1px 14px 5px rgba(255,35,0, .3); background:#fafafa;}
 }
 
 .recovery_widget .float_left {
