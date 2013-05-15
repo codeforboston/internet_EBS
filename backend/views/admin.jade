@@ -20,4 +20,6 @@ body
       label(for="link") Link:
       input#link(type="text", name="link")
     .submit
-      button(type="submit") Submit
+      button(type="submit", name="emergency") Submit
+  form(method="post", action="/admin/"+city+"/allclear")
+    button#allclear(type="submit", name="allclear") All clear

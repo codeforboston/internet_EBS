@@ -29,8 +29,8 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/internet_ebs.js', routes.render_snippet);
 app.get('/admin/:city', routes.admin_get);
+app.post('/admin/:city/allclear', routes.admin_clear);
 app.post('/admin/:city', routes.admin_post)
-app.get('/admin/:city/allclear', routes.admin_clear);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
