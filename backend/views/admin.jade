@@ -3,23 +3,31 @@ head
   title Admin interface
   link(rel="stylesheet", href="/stylesheets/admin.css")
 body
-  p This is the admin interface!
-  .current-status
-    span The current status of&nbsp
+  - var klass = status ? 'true' : 'false'
+  #top-title
+    span City of 
+    span.city=city 
+    span &nbsp;Internet Emergency Broadcasting System
+  div(class= "current-status emergency-#{klass}")
     span.city= city
     span= " is "
-    span.status= status ? 'EMERGENCY' : 'fine'
-  form(method="post", action="/admin/"+city)
-    .title
-      label(for="title") Title:
-      input#title(type="text", name="title")
-    .message
-      label(for="message") Message:
-      textarea#message(name="message")
-    .link
-      label(for="link") Link:
-      input#link(type="text", name="link")
-    .submit
-      button(type="submit", name="emergency") Submit
-  form(method="post", action="/admin/"+city+"/allclear")
-    button#allclear(type="submit", name="allclear") All clear
+    span.status= status ? 'in a state of emergency' : 'all clear'
+    span= "."
+  #formbox
+    form(method="post", action="/admin/"+city)
+      .formrow
+        label(for="title") What happened?
+        input#title(type="text", name="title", placeholder="Event Title")
+      .formrow
+        label(for="message") A short synopsis including any actions to be taken by readers
+        textarea#message(name="message", placeholder="Detailed synopsis of event.")
+      .formrow
+        label(for="link") Link to visit for more information
+        input#link(type="text", name="link", placeholder="Link address")
+      - var verb = status ? 'Update' : 'Post'
+      .buttons
+        button(type="submit", name="emergency", class="button emergency-true") #{verb} Emergency Information
+    - if (status)
+      form(method="post", action="/admin/"+city+"/allclear")
+        .buttons
+          button#allclear(type="submit", name="allclear", class="button emergency-false") Give The All-Clear
