@@ -3,6 +3,11 @@ Internet EBS
 
 #### An Emergency Broadcast System for the Internet
 
+###### Demo
+
+The snippet is embedded [here](http://aaronsikes.com/ebs_demo.html)  
+You can access the admin interface for Sim City [here](http://evening-caverns-6468.herokuapp.com/admin/simcity) to trigger an alert on that page
+
 ----
 
 ###### History
