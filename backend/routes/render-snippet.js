@@ -13,6 +13,9 @@ var mustache_templ_path = path.join(__dirname, '..', 'templates', 'script.mustac
 var mustache_text = fs.readFileSync(mustache_templ_path, 'utf8');
 var mustache_fn = mustache.compile(mustache_text);
 
+var css_path = path.join(__dirname, '..', 'templates','style.css');
+var css_text = fs.readFileSync(css_path, 'utf8');
+
 
 module.exports = function (emergency_state) {
 
@@ -44,10 +47,25 @@ module.exports = function (emergency_state) {
 	function send_emergency_response(city, response){
 		var status = emergency_state.get_state(city);
 		var html = jade_fn({content: status});
-		var snippet = mustache_fn({html: html});
+		var esc_html = escape(html);
+		var css = escape(css_text);
+		var snippet = mustache_fn({html: esc_html, css: css});
 		response.send(snippet);
 	}
 };
+
+function escape(str){
+	return escape_newlines(escape_quotes(str));
+}
+
+function escape_newlines(str){
+	var result = str.replace(/\n/g, '\\n');
+	return result.replace(/\r/g, '');
+}
+function escape_quotes(str){
+	var result = str.replace(/'/g, "\\'");
+	return result.replace(/"/g, '\\"');
+}
 
 
 function get_first(array, predicate) {
